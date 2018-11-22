@@ -1,0 +1,12 @@
+# 端口
+server:
+  port: 8769
+#
+eureka:
+  server:
+    enable-self-preservation: false
+  instance:
+    hostname: peer2
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:8761/eureka/

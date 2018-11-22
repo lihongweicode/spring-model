@@ -1,0 +1,39 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:   # 配置中心服务端配置
+      server:
+        git:
+          uri: https://github.com/lihongweicode/SpringcloudConfig.git # 配置git仓库地址
+          search-paths: config-repo # 配置仓库路径
+          username: 1820994758@qq.com  #访问git仓库的用户名
+          password: lhw1820994758  #访问git仓库的用户密码
+      label: master # 配置仓库的分支
+  rabbitmq:
+      host: localhost
+      port: 5672
+      username: guest
+      password: guest
+eureka:  # 注册中心客户端配置
+  instance:
+    lease-expiration-duration-in-seconds: 1  # Eureka服务器在接收到实例的最后一次发出的心跳后，需要等待多久才可以将此实例删除，默认为90秒
+    lease-renewal-interval-in-seconds: 2  # eureka客户需要多长时间发送心跳给eureka服务器，表明它仍然活着,默认为30 秒
+  client:
+    serviceUrl:   # Eureka 的服务路径
+      defaultZone: http://localhost:8761/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      cors:
+        allowed-origins: "*"
+        allowed-methods: "*"
+
+
+
+
+
